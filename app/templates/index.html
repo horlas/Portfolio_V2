@@ -1,0 +1,465 @@
+{% extends "base.html" %}
+{% block content %}
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">Aurélia Gourbère</a>
+      <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+                    <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">A propos</a>
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">Portfolio</a>
+          </li>
+
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+      <!-- Message section -->
+
+  <div class="toast" data-delay="7000" >
+
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+
+
+    <div class="toast-header">
+    <strong class="mr-auto text-primary">Cher visiteur</strong>
+  </div>
+  <div class="toast-body">
+    {% for message in messages %}
+      {{ message }}
+    {% endfor %}
+  </div>
+
+  {% endif %}
+{% endwith %}
+  </div>
+
+  </nav>
+
+  <!-- Header -->
+  <header class="masthead bg-primary text-center">
+    <div class="container">
+      <img class="img-fluid mb-5 d-block mx-auto " src="{{ url_for('static',filename= 'img/photorond.png' )}}" alt="profil">
+      <h1 class="text-uppercase mb-0 custom-text">Développeuse Python</h1>
+      <hr class="star-dark bg-primary">
+      <h2 class="font-weight-light mb-0">Autonome, curieuse et adaptable aux besoins évolutifs d'un projet, <br><br>
+        j’ai une expertise plus marquée en backend notament en Django REST, <br>
+        cependant j’ai développé une certaine aisance en Javascript (Vue.js) ainsi qu’une connaissance en
+        déploiement (Nginx, Docker). <br><br>
+        J’attache une grande attention à la qualité du code (modularité, tests,
+        lisibilité). <br><br>
+        Ce Portfolio a pour objectif de présenter les projets que j'ai pu réaliser lors de ma formation. Mon Cv est téléchargeable ci après . <br> <br>
+        Je suis à l'écoute d'opportunités de missions me permettant de mettre à profit mes compétences
+        acquises et de les faire évoluer au sein d’un projet intéressant.
+
+      </h2>
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <section class=" mb-0" id="about">
+    <div class="container">
+      <h2 class="text-center text-uppercase custom-text">A propos</h2>
+      <hr class="star-dark white-bg mb-5">
+      <div class="row">
+        <div class="col-lg-4 ml-auto">
+          <p class="lead">Curieuse et dynamique, j'ai développé une aptitude à passer d'une t&acirc;che à l'autre,
+            à éprouver ma capacité d'adaptation et d'apprentissage.<br>
+            J'étends mes compétences en Python, Django et Flask, en base de données (PostgreSQL et MySQL ), en Frontend (Materialize CSS,
+            Bootstrap, jQuery, VueJS), en gestion de projets et méthodes agiles. <br>Je développe sous Linux.</p>
+        </div>
+        <div class="col-lg-4 mr-auto">
+          <p class="lead">Je suis capable de deployer une application.<br>
+            Par ailleurs, je réalise des projets video , du cadrage jusqu'au montage vidéo en lien avec ma passion pour la musique. <br>
+             Je vous invite à découvrir mes projets liés au web ainsi qu'à télécharger mon CV. Pour toutes informations supplémentaires ou demandes particulières, n'hésitez pas à me contacter. Je vous répondrai sous 24 heures. </p>
+        </div>
+      </div>
+      <div class="text-center mt-4">
+        <a class="btn btn-xl btn-outline-dark" href="{{ url_for('static',filename= 'img/CV.pdf' )}}">
+          <i class="fas fa-download mr-2"></i>
+          CV
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Portfolio Grid Section -->
+  <section class="portfolio bg-primary " id="portfolio">
+    <div class="container">
+      <h2 class="text-center text-uppercase mb-0 custom-text">Portfolio</h2>
+      <hr id="star-portfolio" class="star-dark mb-5">
+      <div class="row">
+        <div class="col-md-6 col-lg-4">
+          <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-1">
+            <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
+              <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
+                <i class="fas fa-search-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="{{ url_for('static',filename= 'img/portfolio/projet1.png' )}}" alt="">
+          </a>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-2">
+            <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
+              <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
+                <i class="fas fa-search-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="{{ url_for('static',filename= 'img/portfolio/projet2.png' )}}" alt="">
+          </a>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-3">
+            <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
+              <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
+                <i class="fas fa-search-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="{{ url_for('static',filename= 'img/portfolio/projet3.png' )}}" alt="">
+          </a>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-4">
+            <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
+              <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
+                <i class="fas fa-search-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="{{ url_for('static',filename= 'img/portfolio/projet4.png' )}}" alt="">
+          </a>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-5">
+            <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
+              <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
+                <i class="fas fa-search-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="{{ url_for('static',filename= 'img/portfolio/projet5.png' )}}" alt="">
+          </a>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <a class="portfolio-item d-block mx-auto" href="#portfolio-modal-6">
+            <div class="portfolio-item-caption d-flex position-absolute h-100 w-100">
+              <div class="portfolio-item-caption-content my-auto w-100 text-center text-white">
+                <i class="fas fa-search-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src="{{ url_for('static',filename= 'img/portfolio/projet6.png' )}}" alt="">
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="text-center text-uppercase text-secondary mb-0">Contactez Moi</h2>
+      <hr class="star-dark mb-5">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <form name="SendMessage" id="contactForm" novalidate="novalidate" method="post">
+            {{form.hidden_tag()}}
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                {{ form.nom.label }}
+
+                {{ form.nom(class="form-control", required="required", placeholder="Nom", value="")}}
+
+                {% for message in form.nom.errors %}
+                <p class="help-block text-danger"> {{ message }}</p>
+                {% endfor %}
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                {{ form.email.label }}
+
+                {{ form.email(class="form-control", required="required", placeholder="Email", value="")}}
+
+                {% for message in form.email.errors %}
+                <p class="help-block text-danger"> {{ message }}</p>
+                {% endfor %}
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                {{ form.message.label }}
+                {{ form.message(class="form-control", required="required", placeholder="Message", value="")}}
+              {% for message in form.message.errors %}
+                <p class="help-block text-danger"> {{ message }}</p>
+                {% endfor %}
+
+                </div>
+
+            </div>
+
+            <input type="text" name="password"  style="display:none !important" style="" tabindex="-1" autocomplete="false">
+            <p>{{ form.submit(class="btn btn-primary btn-xl") }}</p>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-5 mb-lg-0">
+          <h4 class="text-uppercase mb-4">Localisation</h4>
+          <p class="lead mb-0">Montpellier, France</p>
+        </div>
+        <div class="col-md-4 mb-5 mb-lg-0">
+          <h4 class="text-uppercase mb-4">Sur le Web</h4>
+          <ul class="list-inline mb-0">
+
+            <li class="list-inline-item">
+              <a class="btn btn-outline-dark btn-social text-center rounded-circle" href="https://github.com/horlas" target="_blank">
+                <i class="fab fa-fw fa-github"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a class="btn btn-outline-dark btn-social text-center rounded-circle" href="https://www.linkedin.com/in/aur%C3%A9lia-gourb%C3%A8re/" target="_blank">
+                <i class="fab fa-fw fa-linkedin-in"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h4 class="text-uppercase mb-4">Credits</h4>
+          <p class="lead mb-0">Thème bootstrap Freelancer.<br>
+                                Page propulsée par Flask 1.0.2. <br>
+                                Favicon: Hand by Jakob Vogel from the Noun Project
+           </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="copyright py-4 text-center text-white">
+    <div class="container">
+      <small>Copyright &copy; Aurélia Gourbère 2021</small>
+    </div>
+  </div>
+
+  <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+  <div class="scroll-to-top d-lg-none position-fixed ">
+    <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top">
+      <i class="fa fa-chevron-up"></i>
+    </a>
+  </div>
+
+  <!-- Portfolio Modals -->
+
+  <!-- Portfolio Modal 1 -->
+  <div class="portfolio-modal mfp-hide" id="portfolio-modal-1">
+    <div class="portfolio-modal-dialog bg-white">
+      <a class="close-button d-none d-md-block portfolio-modal-dismiss" href="#">
+        <i class="fa fa-3x fa-times"></i>
+      </a>
+      <div class="container text-center">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2 class="text-secondary text-uppercase mb-0">Jeu Video </h2>
+            <hr class="star-dark mb-5">
+            <div class="embed-responsive embed-responsive-16by9">
+              <video autoplay loop class="embed-responsive-item">
+                <source src="{{ url_for('static',filename= 'video/projet3_essai.mp4' )}}" type="video/mp4">
+                </video>
+            </div>
+            <p class="mb-3 mt-5">Jeu de labyrinthe : MacGyver doit attraper les objets pour vaincre le méchant ! Il s'agit de mon premier programme en Python. Aujourd'hui je ne l'écrirais certainement pas comme ça !
+              Cependant je le laisse avec son code initial de manière à mesurer mes progrès. J'ai utilisé la bibliothèque Pygame pour le réaliser. </p>
+            <div class="row justify-content-center">
+            <a class="mb-3 btn btn-secondary rounded-pill " href="https://github.com/horlas/OC_Project3" target="_blank">
+                <i class="fab fa-github"></i> Dép&ocirc;t github
+              </a>
+            </div>
+            <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
+              <i class="fa fa-close"></i>
+              Close Project</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Portfolio Modal 2 -->
+  <div class="portfolio-modal mfp-hide" id="portfolio-modal-2">
+    <div class="portfolio-modal-dialog bg-white">
+      <a class="close-button d-none d-md-block portfolio-modal-dismiss" href="#">
+        <i class="fa fa-3x fa-times"></i>
+      </a>
+      <div class="container text-center">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2 class="text-secondary text-uppercase mb-0">Utilisation de données publiques</h2>
+            <hr class="star-dark mb-5">
+            <img class="img-fluid mb-5" src="{{ url_for('static',filename= 'img/portfolio/projet2.png' )}}"  alt="">
+            <p class="mb-5">Programme d'extraction et de traitement de données. L'utilisateurs choisi un produit de consommation quotidienne,
+              le programme lui retourne un produit substituant ayant de meilleures qualités nutritives.
+              Consommation de l'<a href="https://fr.openfoodfacts.org/categorie/produits-a-tartiner.json" >API Openfoodfacts</a>.
+              Création d'une base Mysql. Pour les besoins du programme j'ai utilisé l'ORM SqlAlchemy.</p>
+            <div class="row justify-content-center">
+            <a class="mb-3 btn btn-secondary  rounded-pill " href="https://github.com/horlas/OC_Project5" target="_blank">
+                <i class="fab fa-github"></i> Dép&ocirc;t github
+              </a>
+            </div>
+            <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
+              <i class="fa fa-close"></i>
+              Close Project</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Portfolio Modal 3 -->
+  <div class="portfolio-modal mfp-hide" id="portfolio-modal-3">
+    <div class="portfolio-modal-dialog bg-white">
+      <a class="close-button d-none d-md-block portfolio-modal-dismiss" href="#">
+        <i class="fa fa-3x fa-times"></i>
+      </a>
+      <div class="container text-center">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2 class="text-secondary text-uppercase mb-0">GrandPy Papy Robot</h2>
+            <hr class="star-dark mb-5">
+            <img class="img-fluid mb-5" src="{{ url_for('static',filename= 'img/portfolio/projet3.png' )}}" alt="">
+            <p class="mb-5">Réalisation d'un site statique en Flask . L'utilisateur saisi l'endroit où il veut aller, le robot lui retourne la localisation et une histoire rigolote sur cet emplacement.
+            Pour cela le programme fait des appels en Ajax aux API Googlemap et Wikipédia . J'ai implémenté quelques fontionnalités de traitement de langage. Ce projet simple est réalisé en Flask, il utilise Jquery et Bootstrap pour la partie Front.
+            Il s'agit de mon premier projet web. Le déploiement est effectué sur Heroku.</p>
+            <div class="row justify-content-center">
+            <a class="mb-3 btn btn-secondary  rounded-pill " href="https://papyrobotag.herokuapp.com/" target="_blank">
+                <i class="fab fa-dribbble"></i> Site en ligne
+              </a>
+
+            <a class="mb-3 btn btn-secondary  rounded-pill " href="https://github.com/horlas/OC_Project7" target="_blank">
+                <i class="fab fa-github"></i> Dép&ocirc;t github
+              </a>
+            </div>
+            <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
+              <i class="fa fa-close"></i>
+              Close Project</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Portfolio Modal 4 -->
+  <div class="portfolio-modal mfp-hide" id="portfolio-modal-4">
+    <div class="portfolio-modal-dialog bg-white">
+      <a class="close-button d-none d-md-block portfolio-modal-dismiss" href="#">
+        <i class="fa fa-3x fa-times"></i>
+      </a>
+      <div class="container text-center">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2 class="text-secondary text-uppercase mb-0">Déploiement d'une application</h2>
+            <hr class="star-dark mb-5">
+            <img class="img-fluid mb-5" src="{{ url_for('static',filename= 'img/portfolio/projet4.png' )}}" alt="">
+            <p class="mb-5">Projet qui m'a permis de m'initier au DevOps. Sur un serveur physique dédié, j'ai créé un container LXC dans lequel j'ai hébergé mon application .
+              Le document dans le dép&ocirc;t retrace toutes les étapes et outils de monitoring mis en place.
+            </p>
+            <div class="row justify-content-center">
+            <a class="mb-3 btn btn-secondary  rounded-pill " href="https://github.com/horlas/OC_Project10" target="_blank">
+                <i class="fab fa-github"></i> Dép&ocirc;t github
+              </a>
+            </div>
+            <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
+              <i class="fa fa-close"></i>
+              Close Project</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Portfolio Modal 5 -->
+  <div class="portfolio-modal mfp-hide" id="portfolio-modal-5">
+    <div class="portfolio-modal-dialog bg-white">
+      <a class="close-button d-none d-md-block portfolio-modal-dismiss" href="#">
+        <i class="fa fa-3x fa-times"></i>
+      </a>
+      <div class="container text-center">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2 class="text-secondary text-uppercase mb-0">Pur beurre</h2>
+            <hr class="star-dark mb-5">
+            <img class="img-fluid mb-5" src="{{ url_for('static',filename= 'img/portfolio/projet5.png' )}}" alt="">
+            <p class="mb-5">Découverte du Framework Django (la révélation! ;-) . Il s'agit d'un site web reprenant les projets précédents en matière de traitement et de base de données.
+              L'application propose au visiteur un produit alimentaire de meilleure qualité que celui choisi. Il permet la création d'un compte ainsi que la sauvegarde des recherches.
+              Coté backend , le programme interroge une base de données propriétaire ainsi que l'API Openfoodfacts. L'interface est réalisée en Bootstrap et Jquery.</p>
+            <div class="row justify-content-center">
+            <a class="mb-3 btn btn-secondary  rounded-pill " href="http://purbeurre.cedrix.org/ "target="_blank">
+                <i class="fab fa-dribbble"></i> Site en ligne
+              </a>
+
+            <a class="mb-3 btn btn-secondary  rounded-pill " href="https://github.com/horlas/OC_Project11" target="_blank">
+                <i class="fab fa-github"></i> Dép&ocirc;t github
+              </a>
+            </div>
+            <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
+              <i class="fa fa-close"></i>
+              Close Project</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Portfolio Modal 6 -->
+  <div class="portfolio-modal mfp-hide" id="portfolio-modal-6">
+    <div class="portfolio-modal-dialog bg-white">
+      <a class="close-button d-none d-md-block portfolio-modal-dismiss" href="#">
+        <i class="fa fa-3x fa-times"></i>
+      </a>
+      <div class="container text-center">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2 class="text-secondary text-uppercase mb-0">My First Band</h2>
+            <hr class="star-dark mb-5">
+            <img class="img-fluid mb-5" src="{{ url_for('static',filename= 'img/portfolio/projet6.png' )}}" alt="">
+            <p class="mb-5">My First Band est un projet personnel de réalisation d'un réseau social de musiciens simple et intuitif.
+              Il propose un outil de gestion de projet dedié au travail du groupe. La version présentée est un prototype réalisé en Django et Materialize CSS .
+              La version 2 du projet sera sous forme d'API avec l'utilisation de Vue.js , en client Front (l'occasion pour moi de me confronter à ces technologies).</p>
+            <div class="row justify-content-center">
+            <a class="mb-3 btn btn-secondary  rounded-pill " href="http://myfirstband.cedrix.org/" target="_blank">
+                <i class="fab fa-dribbble"></i> Site en ligne
+              </a>
+            <a class="mb-3 btn btn-secondary  rounded-pill " href="https://github.com/horlas/MyFirstBand" target="_blank">
+                <i class="fab fa-github"></i> Dép&ocirc;t github
+              </a>
+            </div>
+            <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
+              <i class="fa fa-close"></i>
+              Close Project</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+

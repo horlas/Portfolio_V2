@@ -1,0 +1,10 @@
+Aurélia,
+{{ nom }} a visité ton Portofolio et t'a laissé le message suivant :
+
+{{ message }}
+
+
+Pour lui répondre, voici son email {{ email }}
+
+Bien à toi,
+Portofolio admin

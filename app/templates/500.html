@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<header class="masthead bg-primary  text-center">
+    <div class="container">
+        <a  href="{{ url_for('index')}}">
+      <img class="img-fluid mb-5 d-block mx-auto " src="{{ url_for('static',filename= 'img/dinosaur.png' )}}" alt="profil">
+        </a>
+      <h1 class="text-uppercase mb-0"> erreur 500 </h1>
+      <hr class="star-dark">
+      <h2 class="font-weight-light"> Erreur serveur  !!!
+      </h2>
+    </div>
+  </header>
+{% endblock %}

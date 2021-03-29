@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+
+{% block head %}
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Site de présentation des projets réalisés ">
+  <meta name="author" content="Aurélia Gourbère">
+
+  <title>Portfolio</title>
+
+  <!-- Open graph -->
+  <meta property="og:title" content="Portofolio Aurélia Gourbère" />
+  <meta property="og:type" content="portfolio" />
+  <meta property="og:url" content="http://www.horlas.info/" />
+  <meta property="og:image" content="http://www.horlas.info/static/img/opengraph_img.png" />
+
+  <!-- Bootstrap core CSS -->
+  <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="{{ url_for('static', filename='vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+  <!-- Plugin CSS -->
+  <link href="{{ url_for('static', filename='vendor/magnific-popup/magnific-popup.css')}}" rel="stylesheet" type="text/css">
+
+  <!-- Custom styles for this template -->
+  <link href="{{ url_for('static', filename='css/freelancer.min.css')}}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/custom.css')}}" rel="stylesheet">
+
+  <!-- favicon -->
+  <link rel='icon' href="{{ url_for('static', filename='img/favicon.ico')}}" type='image/x-icon' sizes="16x16" />
+
+</head>
+{% endblock %}
+<body>
+{% block content %}
+{% endblock %}
+{% block script %}
+ <!-- Bootstrap core JavaScript -->
+  <script src="{{ url_for('static',filename= 'vendor/jquery/jquery.min.js' )}}"></script>
+  <script src="{{ url_for('static',filename= 'vendor/bootstrap/js/bootstrap.bundle.min.js' )}}"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="{{ url_for('static',filename= 'vendor/jquery-easing/jquery.easing.min.js' )}}"></script>
+  <script src="{{ url_for('static', filename ='vendor/magnific-popup/jquery.magnific-popup.min.js' )}}"></script>
+
+  <!-- Contact Form JavaScript -->
+<!--  <script src="{{ url_for('static',filename= 'js/jqBootstrapValidation.js' )}}"></script>-->
+<!--  <script src="{{ url_for('static',filename= 'js/contact_me.js' )}}"></script>-->
+
+  <!-- Custom scripts for this template -->
+  <script src="{{ url_for('static', filename='js/freelancer.min.js' )}}"></script>
+<!-- Authorize Toast -->
+<script>$(document).ready(function(){
+ $('.toast').toast('show');
+  $('.toast').toast({delay:15000, animation:false});
+});</script>
+
+{% endblock %}
+
+</body>
+</html>
